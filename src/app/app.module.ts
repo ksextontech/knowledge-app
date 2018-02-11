@@ -13,6 +13,8 @@ import { CategoryService } from './services/category.service';
 import { CategoryListComponent } from './categories/category-list/category-list.component';
 import { CategoryListItemComponent } from './categories/category-list-item/category-list-item.component';
 import { CategoryCreateComponent } from './categories/category-create/category-create.component';
+import { QuestionCreateComponent } from './questions/question-create/question-create.component';
+import { ShortAnswerCreateComponent } from './answers/short-answer-create/short-answer-create.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { CategoryCreateComponent } from './categories/category-create/category-c
     CategoryListComponent,
     CategoryListItemComponent,
     CategoryCreateComponent,
+    QuestionCreateComponent,
+    ShortAnswerCreateComponent,
   ],
   imports: [
     BrowserModule,
