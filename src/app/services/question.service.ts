@@ -16,12 +16,16 @@ export class QuestionService {
 
   constructor(private httpClient: HttpClient) { }
 
-  createQuestion(text: string): Observable<any> {
+  createQuestion(text: string, categoryId: string): Observable<any> {
     const url = API_BASE_URL + '/questions';
 
-    const body = {
-      text: text
+    const body: any = {
+      text: text,
     };
+
+    if (categoryId) {
+      body.categoryId = categoryId;
+    }
 
     return this.httpClient.post(url, body).map((result: any) => {
       console.log(result);
@@ -46,6 +50,18 @@ export class QuestionService {
     return this.httpClient.get(url).map((response: any) => {
       const question = new Question(response.id, response.text);
       return question;
+    });
+  }
+
+  markAsAnswered(questionId: string, correctlyAnswered: boolean): Observable<boolean> {
+    const url = API_BASE_URL + `/answered-questions/${questionId}`;
+
+    const body = {
+      correctlyAnswered: correctlyAnswered
+    };
+
+    return this.httpClient.post(url, body).map(result => {
+      return true;
     });
   }
 }

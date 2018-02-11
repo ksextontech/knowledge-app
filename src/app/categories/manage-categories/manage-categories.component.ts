@@ -17,18 +17,6 @@ export class ManageCategoriesComponent implements OnInit {
   constructor(private categoryService: CategoryService) { }
 
   ngOnInit() {
-    this.getCategories();
 
-    this.categoryService.categoryCreated.subscribe(() => {
-      this.getCategories();
-    });
   }
-
-  private getCategories() {
-    this.categoryService.getCategories(this.page, this.pageSize, null).subscribe(result => {
-      this.totalCount = result.totalCount;
-      this.categories = result.data;
-    });
-  }
-
 }

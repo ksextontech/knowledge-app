@@ -15,6 +15,15 @@ export class CategoryService {
 
   constructor(private httpClient: HttpClient) { }
 
+  getAllCategories(): Observable<Category[]> {
+    const url = API_BASE_URL + '/categories';
+
+    return this.httpClient.get(url).map((result: any) => {
+      const categories = <Category[]>result;
+      return categories;
+    });
+  }
+
   getCategories(page: number, pageSize: number, categoryName: string): Observable<PaginatedResultModel<Category>> {
 
     let url = API_BASE_URL + `/categories?page=${page}&pageSize=${pageSize}`;

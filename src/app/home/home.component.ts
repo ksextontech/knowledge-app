@@ -29,6 +29,9 @@ export class HomeComponent implements OnInit {
 
   private onFocusedQuestionClick() {
     this.showAnswer = false;
+    this.questionService.getFocusedQuestion().subscribe(question => {
+      this.question = question;
+    });
   }
 
   private onShowAnswerClick() {
@@ -36,6 +39,28 @@ export class HomeComponent implements OnInit {
     this.answerService.getAnswerFor(this.question.id).subscribe(answer => {
       this.answer = answer;
     });
+  }
+
+  private onCorrectlyAnswered() {
+    this.questionService.markAsAnswered(this.question.id, true).subscribe(result => {
+      if (result) {
+        this.reset();
+      }
+    });
+  }
+
+  private onIncorrectlyAnswered() {
+    this.questionService.markAsAnswered(this.question.id, false).subscribe(result => {
+      if (result) {
+        this.reset();
+      }
+    });
+  }
+
+  private reset() {
+    this.question = null;
+    this.answer = null;
+    this.showAnswer = false;
   }
 
 }

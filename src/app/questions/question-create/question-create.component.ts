@@ -41,6 +41,8 @@ export class QuestionCreateComponent implements OnInit {
     }
   };
 
+  private categoryId: string = null;
+
   constructor(private categoryService: CategoryService, private questionService: QuestionService, private router: Router) { }
 
   ngOnInit() {
@@ -50,9 +52,14 @@ export class QuestionCreateComponent implements OnInit {
     const text = form.value.text;
     console.log(text);
 
-    this.questionService.createQuestion(text).subscribe(result => {
+    this.questionService.createQuestion(text, this.categoryId).subscribe(result => {
       console.log(result);
       this.router.navigate(['/answers/create/' + result.id]);
     });
+  }
+
+  private onCategorySelected(categoryId) {
+    console.log(categoryId);
+    this.categoryId = categoryId;
   }
 }

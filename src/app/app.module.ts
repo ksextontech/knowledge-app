@@ -20,6 +20,7 @@ import { ShortAnswerCreateComponent } from './answers/short-answer-create/short-
 import { QuestionService } from './services/question.service';
 import { AnswerService } from './services/answer.service';
 import { HomeComponent } from './home/home.component';
+import { CategorySelectComponent } from './categories/category-select/category-select.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { HomeComponent } from './home/home.component';
     QuestionCreateComponent,
     ShortAnswerCreateComponent,
     HomeComponent,
+    CategorySelectComponent,
   ],
   imports: [
     BrowserModule,
