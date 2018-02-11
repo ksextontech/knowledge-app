@@ -38,6 +38,13 @@ export class QuestionCreateComponent implements OnInit {
       '\'Times New Roman\',Times,serif': 'Times New Roman',
       'Verdana,Geneva,sans-serif': 'Verdana',
       'Consolas,sans-serif': 'Consolas'
+    },
+    paragraphStyles: {
+      'no-margin': 'No Margins',
+      'fr-text-gray': 'Gray',
+      'fr-text-bordered': 'Bordered',
+      'fr-text-spaced': 'Spaced',
+      'fr-text-uppercase': 'Uppercase'
     }
   };
 
