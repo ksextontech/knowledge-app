@@ -1,3 +1,10 @@
-<p>
-  short-answer-create works!
-</p>
+<h1>Create Answer</h1>
+
+<form class="form-horizontal" #createAnswerForm="ngForm" novalidate (ngSubmit)="onFormSubmit(createAnswerForm)">
+
+  <div class="form-group">
+    <textarea [froalaEditor]="options" name="text" ngModel required></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="!createAnswerForm.form.valid">Create Answer</button>
+</form>

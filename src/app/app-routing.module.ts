@@ -10,7 +10,7 @@ import { ShortAnswerCreateComponent } from './answers/short-answer-create/short-
       { path: '', component: ManageCategoriesComponent },
       { path: 'categories', component: ManageCategoriesComponent },
       { path: 'questions/create', component: QuestionCreateComponent },
-      { path: 'answers/short/create/:id', component: ShortAnswerCreateComponent }
+      { path: 'answers/create/:questionId', component: ShortAnswerCreateComponent }
     ]
   )],
   exports: [RouterModule]

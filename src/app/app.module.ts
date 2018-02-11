@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -15,6 +17,8 @@ import { CategoryListItemComponent } from './categories/category-list-item/categ
 import { CategoryCreateComponent } from './categories/category-create/category-create.component';
 import { QuestionCreateComponent } from './questions/question-create/question-create.component';
 import { ShortAnswerCreateComponent } from './answers/short-answer-create/short-answer-create.component';
+import { QuestionService } from './services/question.service';
+import { AnswerService } from './services/answer.service';
 
 @NgModule({
   declarations: [
@@ -32,10 +36,14 @@ import { ShortAnswerCreateComponent } from './answers/short-answer-create/short-
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FroalaEditorModule.forRoot(),
+    FroalaViewModule.forRoot()
   ],
   providers: [
-    CategoryService
+    CategoryService,
+    QuestionService,
+    AnswerService
   ],
   bootstrap: [AppComponent]
 })

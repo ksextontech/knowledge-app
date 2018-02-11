@@ -1,3 +1,10 @@
-<p>
-  question-create works!
-</p>
+<h1>Create Question</h1>
+
+<form class="form-horizontal" #createQuestionForm="ngForm" novalidate (ngSubmit)="onFormSubmit(createQuestionForm)">
+
+  <div class="form-group">
+    <textarea [froalaEditor]="options" name="text" ngModel required></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="!createQuestionForm.form.valid">Create Question</button>
+</form>
