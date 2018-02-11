@@ -31,4 +31,13 @@ export class AnswerService {
       return answer;
     });
   }
+
+  getAnswerFor(questionId: string): Observable<Answer> {
+    const url = API_BASE_URL + `/answers?questionId=${questionId}`;
+
+    return this.httpClient.get(url).map((response: any) => {
+      const answer = new Answer(response.id, response.questionId, response.text);
+      return answer;
+    });
+  }
 }

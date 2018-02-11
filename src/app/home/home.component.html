@@ -1,0 +1,23 @@
+<div class="row mb-3">
+  <div class="col-md-12">
+      <button class="btn btn-secondary" (click)="onRandomQuestionClick()">Random Question</button>
+      <!-- <button class="btn btn-secondary ml-3" (click)="onFocusedQuestionClick()">Focused Question</button> -->
+      <button class="btn btn-warning ml-3" (click)="onShowAnswerClick()" *ngIf="question">Show Answer</button>
+  </div>
+</div>
+
+<div class="row" *ngIf="question">
+
+  <div class="col-md-12">
+    <div [froalaView]="question.text"></div>
+  </div>
+
+  <div class="col-md-12" *ngIf="showAnswer && answer">
+    <div [froalaView]="answer.text"></div>
+  </div>
+
+  <!-- <div class="col-md-12" *ngIf="showAnswer && answer">
+    <button class="btn btn-success">Answered Correctly</button>
+    <button class="btn btn-danger">Answered Incorrectly</button>
+  </div> -->
+</div>

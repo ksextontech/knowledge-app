@@ -3,11 +3,12 @@ import { RouterModule } from '@angular/router';
 import { ManageCategoriesComponent } from './categories/manage-categories/manage-categories.component';
 import { QuestionCreateComponent } from './questions/question-create/question-create.component';
 import { ShortAnswerCreateComponent } from './answers/short-answer-create/short-answer-create.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   imports: [RouterModule.forRoot(
     [
-      { path: '', component: ManageCategoriesComponent },
+      { path: '', component: HomeComponent },
       { path: 'categories', component: ManageCategoriesComponent },
       { path: 'questions/create', component: QuestionCreateComponent },
       { path: 'answers/create/:questionId', component: ShortAnswerCreateComponent }

@@ -30,4 +30,22 @@ export class QuestionService {
       return question;
     });
   }
+
+  getRandomQuestion(): Observable<Question> {
+    const url = API_BASE_URL + '/questions/random';
+
+    return this.httpClient.get(url).map((response: any) => {
+      const question = new Question(response.id, response.text);
+      return question;
+    });
+  }
+
+  getFocusedQuestion(): Observable<Question> {
+    const url = API_BASE_URL + '/questions/focused';
+
+    return this.httpClient.get(url).map((response: any) => {
+      const question = new Question(response.id, response.text);
+      return question;
+    });
+  }
 }
